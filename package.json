@@ -1,24 +1,35 @@
 {
-  "name": "coingate-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.3.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "18.7.18",
-    "@types/react": "18.0.20",
-    "@types/react-dom": "18.0.6",
-    "eslint": "8.23.1",
-    "eslint-config-next": "12.3.1",
-    "typescript": "4.8.3"
-  }
+	"name": "coingate-app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "prettier --write './**/*.{js,jsx,css,md,json}' --config ./.prettierrc"
+	},
+	"dependencies": {
+		"axios": "^0.27.2",
+		"formik": "^2.2.9",
+		"next": "12.3.1",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-select": "^5.4.0",
+		"styled-components": "^5.3.5",
+		"swr": "^1.3.0",
+		"yup": "^0.32.11"
+	},
+	"devDependencies": {
+		"@svgr/webpack": "^6.3.1",
+		"@types/node": "18.7.18",
+		"@types/react": "18.0.20",
+		"@types/react-dom": "18.0.6",
+		"@types/styled-components": "^5.1.26",
+		"eslint": "^8.23.1",
+		"eslint-config-next": "^12.3.1",
+		"eslint-plugin-prettier": "^4.2.1",
+		"prettier": "^2.7.1",
+		"typescript": "4.8.3"
+	}
 }
