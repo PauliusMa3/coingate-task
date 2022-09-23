@@ -15,21 +15,37 @@ export const getCountryOptions = (data: any) => {
 	return countriesList;
 };
 
-export const findCountry = (country: string | Record<any, unknown>, data: any) => {
-	return data.find((item: any) => {
-		if (item.countries.length === 1) return item.countries[0].value === country;
+export const findGiftCardByCountry = (countryValue: string | Record<any, unknown>, data: any) => {
+	let foundCountry;
+	const foundGiftCard = data.find((item: any) => {
+		const foundEntryCountry = item.countries.find((country: any) => {
+			if (country.value === countryValue) {
+				foundCountry = { ...country };
+				return true;
+			}
+		});
+
+		if (foundEntryCountry) {
+			return true;
+		}
 	});
+
+	return {
+		foundCountry,
+		foundGiftCard
+	};
 };
 
 export const getAmountOptions = (country: string | Record<any, unknown>, data: any) => {
 	const amountList: Option[] = [];
 
-	const foundCountry = findCountry(country, data);
-	if (foundCountry) {
-		const currency = foundCountry.currency.iso_symbol;
+	const { foundGiftCard } = findGiftCardByCountry(country, data);
 
-		if (foundCountry.digital_denominations?.length) {
-			foundCountry.digital_denominations.forEach((denominator: number) => {
+	if (foundGiftCard) {
+		const currency = foundGiftCard.currency.iso_symbol;
+
+		if (foundGiftCard.digital_denominations?.length) {
+			foundGiftCard.digital_denominations.forEach((denominator: number) => {
 				amountList.push({
 					label: `${denominator} ${currency}`,
 					value: {

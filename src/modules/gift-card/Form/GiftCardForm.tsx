@@ -1,6 +1,11 @@
 import SelectInput, { Option } from '@/components/Form/Select';
 import { Formik, FormikHelpers } from 'formik';
-import { findCountry, getAmountOptions, getCountryOptions, sortArrayAsc } from './helpers';
+import {
+	findGiftCardByCountry,
+	getAmountOptions,
+	getCountryOptions,
+	sortArrayAsc
+} from './helpers';
 import * as S from './styled';
 import { GiftCardFormSchema } from './validationSchema';
 
@@ -19,8 +24,8 @@ const GiftCardForm = ({ data }: any) => {
 	const giftCardData = data.gift_cards;
 	const sortedCountryOptions = sortArrayAsc(getCountryOptions(giftCardData));
 
-	const intialCountry =
-		findCountry(data.ip_country, giftCardData)?.countries[0] ?? sortedCountryOptions[0];
+	const { foundCountry } = findGiftCardByCountry(data.ip_country, giftCardData);
+	const intialCountry: any = foundCountry ? foundCountry : sortedCountryOptions[0];
 
 	return (
 		<Formik

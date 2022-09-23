@@ -1,6 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Overview
+Different Brand data can be checked and reviewed by adding or replacing brandName query param. E.g (?brandName=eneba)
+
 ## Getting Started
+
+Install node_modules by running yarn
 
 First, run the development server:
 
