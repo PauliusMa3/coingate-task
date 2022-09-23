@@ -12,7 +12,6 @@ const ProductList = styled.div`
 	grid-auto-flow: column;
 	overflow-x: scroll;
 	gap: 1.8rem;
-	justify-content: center;
 	overflow-x: auto;
 	overscroll-behavior: contain;
 `;
