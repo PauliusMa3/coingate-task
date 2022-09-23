@@ -14,14 +14,15 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     :root {
-        --space-unit: 1rem;
+        //Potencial future upgrade to have all spacing for different device sizes controlled by just single space-unit variable
+        /* --space-unit: 1rem;
         --space-xxs: calc(0.25 * var(--space-unit));
         --space-xs: calc(0.5 * var(--space-unit));
         --space-sm: calc(0.75 * var(--space-unit));
         --space-md: calc(1.6 * var(--space-unit));
         --space-lg: calc(2 * var(--space-unit));
         --space-xl: calc(3.25 * var(--space-unit));
-        --space-xxl: calc(5.25 * var(--space-unit));
+        --space-xxl: calc(5.25 * var(--space-unit)); */
 
 
         --box-shadow-offset-x: 0px;
@@ -36,15 +37,6 @@ export const GlobalStyle = createGlobalStyle`
         --main-card-width: 26.3rem;
         --main-card-height: 17rem;
 
-        @media screen and (max-width: ${breakpoints.xs}) {
-		    --image-card-width: 147px;
-            --image-card-height: 93px;
-		}
-    }
-
-    html {
-        font-size: 62.5%;
-        
         --max-width-page: 1210px;
 
         --color-background-primary: #EEF6FD;
@@ -60,6 +52,15 @@ export const GlobalStyle = createGlobalStyle`
         --color-gray-900: #11193B;
 
         --box-shadow-primary: 0px 5px 11px rgba(29, 0, 62, 0.07);
+
+        @media screen and (max-width: ${breakpoints.xs}) {
+		    --image-card-width: 147px;
+            --image-card-height: 93px;
+		}
+    }
+
+    html {
+        font-size: 62.5%;
     }
 
     html,
